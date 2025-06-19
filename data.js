@@ -3,26 +3,26 @@ const profiles = {
   flatulunce: {
     username: 'flatulunce',
     bio: 'OG fart artist. Been leaking since birth.',
-    avatar: 'https://i.imgur.com/NH5Q1U0.png'
+    avatar: 'https://cdn.pixabay.com/photo/2015/05/31/11/45/cat-791612_1280.jpg'
   },
   zuck: {
     username: 'zuck',
     bio: 'Just coded a fart 💻💨',
-    avatar: 'https://i.imgur.com/hq6GL3j.png'
+    avatar: 'https://cdn.pixabay.com/photo/2017/11/09/21/41/monkey-2939888_1280.jpg'
   },
   queenfarter: {
     username: 'queenfarter',
     bio: 'Slay & spray 👑💨',
-    avatar: 'https://i.imgur.com/bQorX5E.png'
+    avatar: 'https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_1280.jpg'
   }
 };
 
-// Initial 3 custom posts
+// Starting custom posts
 const posts = [
   {
     id: 1,
     user: 'flatulunce',
-    image: 'https://i.imgur.com/9NyG1k1.jpeg',
+    image: 'https://cdn.pixabay.com/photo/2020/02/06/16/18/surprised-cat-4827021_1280.jpg',
     caption: 'Just ripped one on the carpet 💨',
     likes: 55682,
     comments: ['bro 💀', 'this one smelled digital']
@@ -30,7 +30,7 @@ const posts = [
   {
     id: 2,
     user: 'zuck',
-    image: 'https://i.imgur.com/UGfwMhv.jpeg',
+    image: 'https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_1280.jpg',
     caption: 'Just coded a fart',
     likes: 120789,
     comments: ['meta methane', 'open source stink']
@@ -38,32 +38,32 @@ const posts = [
   {
     id: 3,
     user: 'queenfarter',
-    image: 'https://i.imgur.com/5y2clmg.jpeg',
+    image: 'https://cdn.pixabay.com/photo/2017/03/12/13/41/animal-2135875_1280.jpg',
     caption: 'silent but deadly 😳',
     likes: 8420,
     comments: ['bow to the queen', 'she gassed the throne']
   }
 ];
 
-// Fartgram meme-worthy image bank
+// Working image URLs for random fart posts
 const fartImages = [
-  'https://i.ibb.co/2kGgKWT/fart1.jpg',
-  'https://i.ibb.co/DYHftm7/fart2.jpg',
-  'https://i.ibb.co/vhcq2Pj/fart3.jpg',
-  'https://i.ibb.co/qyK9fx1/fart4.jpg',
-  'https://i.ibb.co/1nSD7Nz/fart5.jpg',
-  'https://i.ibb.co/k9Rw1Lk/fart6.jpg',
-  'https://i.ibb.co/k5SL8x3/fart7.jpg',
-  'https://i.ibb.co/pQhP0K0/fart8.jpg',
-  'https://i.ibb.co/wd2Xhn3/fart9.jpg',
-  'https://i.ibb.co/ZJKbfJz/fart10.jpg'
+  'https://cdn.pixabay.com/photo/2020/02/06/16/18/surprised-cat-4827021_1280.jpg',
+  'https://cdn.pixabay.com/photo/2015/06/01/01/03/animal-793632_1280.jpg',
+  'https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_1280.jpg',
+  'https://cdn.pixabay.com/photo/2017/11/09/21/41/monkey-2939888_1280.jpg',
+  'https://cdn.pixabay.com/photo/2017/03/12/13/41/animal-2135875_1280.jpg',
+  'https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_1280.jpg',
+  'https://cdn.pixabay.com/photo/2015/05/31/11/45/cat-791612_1280.jpg',
+  'https://cdn.pixabay.com/photo/2014/11/17/13/17/cat-534846_1280.jpg',
+  'https://cdn.pixabay.com/photo/2016/02/10/16/37/dog-1194086_1280.jpg',
+  'https://cdn.pixabay.com/photo/2020/01/25/09/51/dog-4791018_1280.jpg'
 ];
 
-// Generate 17 more posts to reach 20 total
+// Generate 17 additional posts
 for (let i = 4; i <= 20; i++) {
   const users = Object.keys(profiles);
   const user = users[Math.floor(Math.random() * users.length)];
-  const randomImg = fartImages[Math.floor(Math.random() * fartImages.length)];
+  const image = fartImages[Math.floor(Math.random() * fartImages.length)];
   const captions = [
     'accidentally crop-dusted 😶‍🌫️',
     'farted in line at Chipotle',
@@ -81,7 +81,7 @@ for (let i = 4; i <= 20; i++) {
   posts.push({
     id: i,
     user,
-    image: randomImg,
+    image,
     caption,
     likes: Math.floor(Math.random() * 100000),
     comments: ['🔥🔥', 'that was gnarly']
