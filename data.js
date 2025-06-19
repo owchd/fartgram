@@ -47,16 +47,16 @@ const posts = [
 
 // Fartgram meme-worthy image bank
 const fartImages = [
-  'https://i.imgur.com/9NyG1k1.jpeg',
-  'https://i.imgur.com/5y2clmg.jpeg',
-  'https://i.imgur.com/UGfwMhv.jpeg',
-  'https://i.imgur.com/ZyM3tkK.jpeg',
-  'https://i.imgur.com/p4G5GUt.jpeg',
-  'https://i.imgur.com/PS5dR7J.jpeg',
-  'https://i.imgur.com/3L3jWJg.jpeg',
-  'https://i.imgur.com/M1Vn0bE.jpeg',
-  'https://i.imgur.com/kJybKjG.jpeg',
-  'https://i.imgur.com/aG3r8CT.jpeg'
+  'https://i.ibb.co/2kGgKWT/fart1.jpg',
+  'https://i.ibb.co/DYHftm7/fart2.jpg',
+  'https://i.ibb.co/vhcq2Pj/fart3.jpg',
+  'https://i.ibb.co/qyK9fx1/fart4.jpg',
+  'https://i.ibb.co/1nSD7Nz/fart5.jpg',
+  'https://i.ibb.co/k9Rw1Lk/fart6.jpg',
+  'https://i.ibb.co/k5SL8x3/fart7.jpg',
+  'https://i.ibb.co/pQhP0K0/fart8.jpg',
+  'https://i.ibb.co/wd2Xhn3/fart9.jpg',
+  'https://i.ibb.co/ZJKbfJz/fart10.jpg'
 ];
 
 // Generate 17 more posts to reach 20 total
