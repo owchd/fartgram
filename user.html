@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fartgram Profile</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/4c3f139798.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="app">
+    <header class="header" id="username">User</header>
+    <div class="feed" id="profile">
+      <!-- profile info + posts will load here -->
+    </div>
+    <footer class="footer-nav">
+      <a href="index.html"><i class="fa-solid fa-house"></i></a>
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <i class="fa-solid fa-square-plus"></i>
+      <i class="fa-solid fa-clone"></i>
+      <i class="fa-solid fa-user"></i>
+    </footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const username = params.get('user');
+    const profileData = profiles[username];
+
+    if (!profileData) {
+      document.getElementById('profile').innerHTML = `<p style="padding:1rem;">User not found.</p>`;
+      document.getElementById('username').textContent = "Unknown";
+    } else {
+      document.getElementById('username').textContent = profileData.username;
+
+      const profileHTML = `
+        <div class="post-header" style="padding-top: 1.5rem;">
+          <img src="${profileData.avatar}" class="avatar">
+          <div>
+            <div style="font-weight:bold; font-size:1.2rem;">@${profileData.username}</div>
+            <div style="color:gray;">${profileData.bio}</div>
+          </div>
+        </div>
+      `;
+
+      const userPosts = posts.filter(p => p.user === username).map(p => `
+        <div class="post">
+          <div class="post-image">
+            <img src="${p.image}" alt="post">
+          </div>
+          <div class="post-info">
+            <div class="likes">${p.likes.toLocaleString()} likes</div>
+            <div class="caption">${p.caption}</div>
+            <div class="comments">${p.comments[0]}</div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('profile').innerHTML = profileHTML + userPosts;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fartgram</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/4c3f139798.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="app">
+    <header class="header">Fartgram 💨</header>
+    <main class="feed" id="feed"></main>
+    <footer class="footer-nav">
+      <i class="fa-solid fa-house"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <i class="fa-solid fa-square-plus"></i>
+      <i class="fa-solid fa-clone"></i>
+      <i class="fa-solid fa-user"></i>
+    </footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    const feed = document.getElementById('feed');
+
+    posts.forEach(post => {
+      const profile = profiles[post.user];
+      const postHTML = `
+        <div class="post">
+          <div class="post-header">
+            <a href="user.html?user=${post.user}">
+              <img src="${profile.avatar}" class="avatar">
+            </a>
+            <a class="username" href="user.html?user=${post.user}">${profile.username}</a>
+          </div>
+          <div class="post-image">
+            <img src="${post.image}" alt="fart post">
+          </div>
+          <div class="post-actions">
+            <i class="fa-regular fa-heart like-icon"></i>
+            <i class="fa-regular fa-comment"></i>
+            <i class="fa-regular fa-paper-plane"></i>
+            <div style="margin-left:auto;"><i class="fa-regular fa-bookmark"></i></div>
+          </div>
+          <div class="post-info">
+            <div class="likes">${post.likes.toLocaleString()} likes</div>
+            <div class="caption"><b>${post.user}</b> ${post.caption}</div>
+            <div class="comments">${post.comments[0]}</div>
+          </div>
+        </div>
+      `;
+      feed.innerHTML += postHTML;
+    });
+
+    // Like toggle
+    document.addEventListener('click', e => {
+      if (e.target.classList.contains('like-icon')) {
+        e.target.classList.toggle('fa-solid');
+        e.target.classList.toggle('liked');
+      }
+    });
+  </script>
+</body>
+</html>
